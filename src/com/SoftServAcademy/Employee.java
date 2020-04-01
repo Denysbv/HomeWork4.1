@@ -52,21 +52,13 @@ public class Employee {
     }
 
     public static void sortSalary(Employee... employees) {
-        int tempSalary;
-        int tempDep;
-        String tempName;
+        Employee temp;
         for (int i = 0; i < employees.length - 1; i++) {
             for (int j = i + 1; j < employees.length; j++) {
                 if (employees[i].getSalary() < employees[j].getSalary()) {
-                    tempSalary = employees[i].getSalary();
-                    tempDep = employees[i].getDepartment();
-                    tempName = employees[i].getName();
-                    employees[i].setName(employees[j].getName());
-                    employees[i].setDepartment(employees[j].getDepartment());
-                    employees[i].setSalary(employees[j].getSalary());
-                    employees[j].setSalary(tempSalary);
-                    employees[j].setDepartment(tempDep);
-                    employees[j].setName(tempName);
+                    temp = employees[i];
+                    employees[i] = employees[j];
+                    employees[i] = temp;
                 }
             }
         }
