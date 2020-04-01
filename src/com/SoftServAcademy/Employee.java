@@ -58,7 +58,7 @@ public class Employee {
                 if (employees[i].getSalary() < employees[j].getSalary()) {
                     temp = employees[i];
                     employees[i] = employees[j];
-                    employees[i] = temp;
+                    employees[j] = temp;
                 }
             }
         }

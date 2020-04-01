@@ -69,7 +69,6 @@ public class Main {
             }
         }
         System.out.println("The product of all entered even numbers is " + numbers);
-        scanner.close();
 
         // #4
         Car car1 = new Car(CarType.Hatchback, 2000, 2);
@@ -77,6 +76,7 @@ public class Main {
         Car car3 = new Car(CarType.SEDAN, 2017, 1);
         Car car4 = new Car(CarType.Coupe, 1999, 2);
         Car.findYear(car1, car2, car3, car4);
+        Car.orderByYear(car1, car2, car3, car4);
 
 
     }

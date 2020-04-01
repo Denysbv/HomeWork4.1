@@ -29,23 +29,47 @@ public class Car {
         this.enginecapasity = enginecapasity;
     }
 
-//    public static void orderByYear (Car... cars) {
-//        int year = 0;
-//        for
-//
-//    }
+    @Override
+    public String toString() {
+        return "Car{" +
+                "type=" + type +
+                ", yearOfProduction=" + yearOfProduction +
+                ", enginecapasity=" + enginecapasity +
+                '}';
+    }
+
+    public static void orderByYear (Car... cars) {
+        Car temp;
+        for (int i = 0; i<cars.length-1; i++) {
+            for (int j = i+1; j<cars.length; j++) {
+                if (cars[i].getYearOfProduction()<cars[j].getYearOfProduction()){
+                    temp = cars[i];
+                    cars[i] = cars[j];
+                    cars[j] = temp;
+                }
+            }
+        }
+        for (Car car : cars) {
+            System.out.println(car.toString());
+        }
+
+    }
 
 
     public static void findYear (Car... cars) {
         System.out.println("Enter year: ");
         Scanner scanner = new Scanner(System.in);
         int year = scanner.nextInt();
+        int count = 0;
         for (Car car : cars) {
             if (car.getYearOfProduction()==year) {
                 System.out.println(car.type);
-            } else {
-                System.out.println("Car not found");
+                count++;
             }
-        } scanner.close();
+        }
+        if (count==0) {
+            System.out.println("Car not found");
+        }
+        scanner.close();
     }
 }
